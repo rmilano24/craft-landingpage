@@ -1,6 +1,11 @@
 {% for entry in craft.entries.section('homePanels').type('heroPanel') %}
 
-<div class="hero-image" style="background-image:url('');">
+{% set heroImage = "" %}
+{% for asset in entry.heroImage %}
+    {% set heroImage = asset.url %}
+{% endfor %}
+
+<div class="hero-image" style="background-image:url('{{heroImage}}');">
       <div id="home">
           <div class="hero-overlay">
               <header id="site-header">
